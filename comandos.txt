@@ -1,0 +1,47 @@
+docker run <imagem>
+docker ps / docker container ls --> exibe quais containers estão em execução
+docker ps -a / docker container ls -a --> exibe os containers que estão ou os que estiveram em execução
+docker stop id-container / imagem --> Para a execução do container informado através do id
+docker start id-container / imagem --> Recriar / Reexecutar o container informado através do id
+docker exec -it id-container / imagem bash --> Cria o container no modo interativo, desse modo é possível executar algum comando via terminal
+docker pause id-container / imagem --> Pausa o container
+docker unpause id-container / imagem --> Retira a pausa do container
+docker stop -t=0 id-container / imagem --> Para o container instantaneamente
+docker rm id-container / imagem --> Remove o container
+docker run -d dockersamples/static-site --> Baixa e executa o container mas não trava o terminal
+docker container rm id-do-continer --force --> Remover o container recém criado
+docker ports --> Verificar as portas do container
+
+docker run -d -P id-container / imagem -> Exibe as portas do container
+docker run -d -p porta-desejada:porta-a-ser-refletida id-container / imagem --> Informa que a porta-desejada irá refletir na porta porta-a-ser-refletida do container (por exemplo: 8080:80)
+
+Obs.: Com a flag -p, é possível fazer uma ponte entre a aplicação dentro do container e o nosso host. Este cenário é muito interessante quando queremos testar o funcionamento e como uma aplicação está interagindo com outras
+
+docker imagens --> Lista as imagens que foram realizadas o download
+docker inspect id-container --> Retorna as informações referentes aquela imagem
+docker history id-container --> Exibe o histórico da imagem
+docker build -t curso_docker/app-node:1.0 . --> Comando para subir a primeira imagem criada
+docker run -d curso_docker/app-node:1.1 . --> Executa a imagem criada
+docker run -p 9090:6000 -d curso_docker/app-node:1.2 --> Executando a imagem e alterando a porta 6000 para 9090
+docker stop $(docker container ls -q) --> Para os containers que estiverem em execução
+docker image rm $(docker image ls -a -d) --> Deleta as imagens do docker
+
+Obs.: A instrução ARG carrega variáveis apenas no momento de build da imagem, enquanto a instrução ENV carrega variáveis que serão utilizadas no container.
+
+docker login -u <usuario-docker-hub> --> Autenticar usuário cadastrado
+
+docker tag curso_docker/app-node:1.2 lpadilha/app-node:1.2 --> Criando a tag para subir a imagem no docker hub conforme o usuário
+docker push lpadilha/app-node:1.0 --> Realizando o push no docker hub da imagem criada
+
+
+
+
+
+
+
+
+
+
+
+
+
