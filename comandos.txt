@@ -54,6 +54,11 @@ docker volume create <nome: por exemplo: meu-docker> --> Criar volume
 docker run -it -v meu-docker:/app ubuntu bash --> Executar
 
 docker run -it --mount source=meu-docker,target=/app ubuntu bash --> Cria volume para o container
+docker network ls --> Exibe as redes disponíveis para o docker
+docker run -it --name <nome-container> ubuntu bash --> Nomeando o container
+docker network create --driver bridge <nome-da-rede> --> Criando uma rede docker
+docker run -it --name <nome-container> --network <nome-da-rede> ubuntu bash --> Executando o container na rede criada
+
 
 
 
