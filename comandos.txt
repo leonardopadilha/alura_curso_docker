@@ -9,7 +9,7 @@ docker unpause id-container / imagem --> Retira a pausa do container
 docker stop -t=0 id-container / imagem --> Para o container instantaneamente
 docker rm id-container / imagem --> Remove o container
 docker run -d dockersamples/static-site --> Baixa e executa o container mas não trava o terminal
-docker container rm id-do-continer --force --> Remover o container recém criado
+docker container rm id-do-container --force --> Remover o container recém criado
 docker ports --> Verificar as portas do container
 
 docker run -d -P id-container / imagem -> Exibe as portas do container
@@ -59,17 +59,8 @@ docker run -it --name <nome-container> ubuntu bash --> Nomeando o container
 docker network create --driver bridge <nome-da-rede> --> Criando uma rede docker
 docker run -it --name <nome-container> --network <nome-da-rede> ubuntu bash --> Executando o container na rede criada
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+docker run -d --network host <nome-container> --> Remove isolamentos que haviam entre a interface do container com o host. Porque
+utilizando o driver host nós estamos utilizando a mesma rede, a mesma interface do host que
+está hospedando esse container. Então, caso tivesse alguma outra aplicação na minha porta 3000
+com meu host em execução, eu não conseguiria fazer a utilização desse container dessa maneira,
+daria um problema de conflito de portas, porque a interface seria a mesma.
