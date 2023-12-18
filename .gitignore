@@ -2,3 +2,6 @@ node_modules/
 Api-Correios/
 Correios-Brasil/
 teste.js
+teste-api/
+teste-api-regres/
+.vscode

@@ -20,7 +20,10 @@ Obs.: Com a flag -p, é possível fazer uma ponte entre a aplicação dentro do 
 docker imagens --> Lista as imagens que foram realizadas o download
 docker inspect id-container --> Retorna as informações referentes aquela imagem
 docker history id-container --> Exibe o histórico da imagem
+
 docker build -t curso_docker/app-node:1.0 . --> Comando para subir a primeira imagem criada
+docker build -t  cursonodejs/nginx-vim:latest .
+
 docker run -d curso_docker/app-node:1.1 . --> Executa a imagem criada
 docker run -p 9090:6000 -d curso_docker/app-node:1.2 --> Executando a imagem e alterando a porta 6000 para 9090
 docker stop $(docker container ls -q) --> Para os containers que estiverem em execução
@@ -54,6 +57,9 @@ docker volume create <nome: por exemplo: meu-docker> --> Criar volume
 docker run -it -v meu-docker:/app ubuntu bash --> Executar
 
 docker run -it --mount source=meu-docker,target=/app ubuntu bash --> Cria volume para o container
+
+docker run -d -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html nginx
+
 docker network ls --> Exibe as redes disponíveis para o docker
 docker run -it --name <nome-container> ubuntu bash --> Nomeando o container
 docker network create --driver bridge <nome-da-rede> --> Criando uma rede docker
@@ -75,3 +81,10 @@ docker run -d --network minha-bridge --name meu-mongo mongo:4.4.6
 docker run -d --network minha-bridge --name alurabooks -p 3000:3000 aluradocker/alura-books:1.0
 http://localhost:3000/seed
 http://localhost:3000
+
+
+ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+sudo service docker status
+sudo service docker start
+
+docker run -dit -p 8080:80  cursonodejs/workdir -> Executa o container em modo headless
