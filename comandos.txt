@@ -88,3 +88,16 @@ sudo service docker status
 sudo service docker start
 
 docker run -dit -p 8080:80  cursonodejs/workdir -> Executa o container em modo headless
+
+docker run -dit -p 3000:3000 -v $(pwd)/:usr/src/app --name nodeApp node:15 bash
+docker exec -it nodeApp bash
+
+após a criação do Dockerfile (na pasta principal fora do docker)
+docker build -t cursonode/hello-node .
+docker run -d -p 3000:3000 cursonode/hello-node
+
+docker-compose up -d --build
+docker-compose down
+docker-compose up -d
+
+docker-compose up -d
