@@ -101,3 +101,5 @@ docker-compose down
 docker-compose up -d
 
 docker-compose up -d
+
+docker exec -it < nome-container (exemplo: node_db_1) > bash
